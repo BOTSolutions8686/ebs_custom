@@ -1,0 +1,227 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-05-08 12:33:49.777984",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_sjtj",
+  "naming_series",
+  "company",
+  "custom_branch",
+  "column_break_yjqp",
+  "posting_date",
+  "posting_time",
+  "section_break_fh4w",
+  "warehouse",
+  "section_break_fcqi",
+  "cost_center",
+  "column_break_g33e",
+  "project",
+  "section_break_zfe6",
+  "employee",
+  "column_break_edqk",
+  "department",
+  "column_break_ppvm",
+  "consumption_type",
+  "section_break_aqq2",
+  "items",
+  "section_break_7bin",
+  "total_qty",
+  "column_break_abth",
+  "total_amount",
+  "section_break_uplk",
+  "remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_sjtj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "options": "SC-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Warehouse",
+   "options": "Warehouse",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cost_center",
+   "fieldtype": "Link",
+   "label": "Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "consumption_type",
+   "fieldtype": "Link",
+   "label": "Consumption Type",
+   "options": "Consumption Item"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "items",
+   "fieldtype": "Table",
+   "label": "Items",
+   "options": "Stock Consumption Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount"
+  },
+  {
+   "fieldname": "total_qty",
+   "fieldtype": "Float",
+   "label": "Total Qty",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_aqq2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_7bin",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_uplk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_fh4w",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_fcqi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_abth",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_g33e",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_zfe6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_edqk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ppvm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_yjqp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Stock Consumption",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "custom_branch",
+   "fieldtype": "Link",
+   "label": "Branch",
+   "options": "Branch",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-08-21 09:28:14.314329",
+ "modified_by": "Administrator",
+ "module": "Ebs Custom",
+ "name": "Stock Consumption",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}

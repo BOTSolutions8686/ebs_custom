@@ -1,0 +1,101 @@
+{
+ "actions": [],
+ "allow_bulk_edit": 1,
+ "allow_rename": 1,
+ "creation": "2026-07-19 16:39:43.955303",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "select",
+  "message",
+  "column_break_ihor",
+  "status",
+  "user",
+  "password",
+  "update_password"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Pending\nCreated\nSkipped\nFailed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ihor",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "select",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Select"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "User",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:!(doc.select && doc.user)",
+   "fieldname": "password",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Password",
+   "read_only": 1
+  },
+  {
+   "fieldname": "message",
+   "fieldtype": "Small Text",
+   "label": "Message",
+   "read_only": 1
+  },
+  {
+   "columns": 2,
+   "depends_on": "eval:doc.select && doc.user",
+   "fieldname": "update_password",
+   "fieldtype": "Button",
+   "in_list_view": 1,
+   "label": "Update Password"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-08-02 11:58:24.782773",
+ "modified_by": "Administrator",
+ "module": "Ebs Custom",
+ "name": "Employee User Generator Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,174 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "STR-.YYYY.-.####",
+ "creation": "2026-05-31 14:14:43.795555",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_gafd",
+  "employee",
+  "employee_name",
+  "column_break_iwlk",
+  "company",
+  "amended_from",
+  "current_shift_information_section",
+  "shift_assignment",
+  "current_start_date",
+  "column_break_fson",
+  "current_shift",
+  "current_end_date",
+  "requested_shift_details_section",
+  "requested_shift",
+  "column_break_zjzy",
+  "effective_date",
+  "section_break_pfus",
+  "reason"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_gafd",
+   "fieldtype": "Section Break",
+   "label": "Employee Information"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Shift Transfer Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_iwlk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "shift_assignment",
+   "fieldtype": "Link",
+   "label": "Shift Assignment",
+   "options": "Shift Assignment",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "employee.company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "shift_assignment.shift_type",
+   "fieldname": "current_shift",
+   "fieldtype": "Link",
+   "label": "Current Shift",
+   "options": "Shift Type",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "shift_assignment.start_date",
+   "fieldname": "current_start_date",
+   "fieldtype": "Date",
+   "label": "Current Start Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_shift_information_section",
+   "fieldtype": "Section Break",
+   "label": "Current Shift Information"
+  },
+  {
+   "fieldname": "column_break_fson",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "shift_assignment.end_date",
+   "fieldname": "current_end_date",
+   "fieldtype": "Date",
+   "label": "Current End Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "requested_shift_details_section",
+   "fieldtype": "Section Break",
+   "label": "Requested Shift Details"
+  },
+  {
+   "fieldname": "requested_shift",
+   "fieldtype": "Link",
+   "label": "Requested Shift",
+   "options": "Shift Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_zjzy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "effective_date",
+   "fieldtype": "Date",
+   "label": "Effective Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_pfus",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "reason",
+   "fieldtype": "Long Text",
+   "label": "Reason"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-05-31 16:32:33.009795",
+ "modified_by": "Administrator",
+ "module": "Transfer Requests",
+ "name": "Shift Transfer Request",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

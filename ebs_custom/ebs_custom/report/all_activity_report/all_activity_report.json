@@ -1,0 +1,30 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-09-28 11:44:50.094606",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-09-28 13:27:33.414097",
+ "modified_by": "Administrator",
+ "module": "Ebs Custom",
+ "name": "All Activity Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\r\n    c.creation AS \"Activity Date:Datetime:160\",\r\n    COALESCE(c.comment_by, c.owner) AS \"User:Data:180\",\r\n    c.comment_type AS \"Activity Type:Data:140\",\r\n    c.reference_doctype AS \"Reference DocType:Data:180\",\r\n    c.reference_name AS \"Reference Name:Data:180\",\r\n    c.content AS \"Description:Text:300\"\r\nFROM `tabComment` c\r\n\r\nUNION ALL\r\n\r\nSELECT\r\n    al.communication_date AS \"Activity Date:Datetime:160\",\r\n    COALESCE(al.user, al.owner) AS \"User:Data:180\",\r\n    CONCAT_WS(' - ', al.operation, al.status) AS \"Activity Type:Data:140\",\r\n    al.reference_doctype AS \"Reference DocType:Data:180\",\r\n    al.reference_name AS \"Reference Name:Data:180\",\r\n    COALESCE(al.subject, al.content) AS \"Description:Text:300\"\r\nFROM `tabActivity Log` al\r\n\r\nUNION ALL\r\n\r\nSELECT\r\n    f.creation AS \"Activity Date:Datetime:160\",\r\n    f.owner AS \"User:Data:180\",\r\n    'File Upload' AS \"Activity Type:Data:140\",\r\n    f.attached_to_doctype AS \"Reference DocType:Data:180\",\r\n    f.attached_to_name AS \"Reference Name:Data:180\",\r\n    f.file_name AS \"Description:Text:300\"\r\nFROM `tabFile` f\r\n\r\nUNION ALL\r\n\r\nSELECT\r\n    v.creation AS \"Activity Date:Datetime:160\",\r\n    v.owner AS \"User:Data:180\",\r\n    'Document Updated' AS \"Activity Type:Data:140\",\r\n    v.ref_doctype AS \"Reference DocType:Data:180\",\r\n    v.docname AS \"Reference Name:Data:180\",\r\n    CONCAT('Document version: ', v.name) AS \"Description:Text:300\"\r\nFROM `tabVersion` v\r\n\r\nORDER BY 1 DESC",
+ "ref_doctype": "Activity Log",
+ "reference_report": "",
+ "report_name": "All Activity Report",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

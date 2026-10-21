@@ -1,0 +1,13 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Item",
+  "enabled": 1,
+  "modified": "2026-07-19 12:06:11.726267",
+  "module": "Ebs Custom",
+  "name": "Automatic Item Code",
+  "script": "frappe.ui.form.on('Item', {\n    setup: function(frm) {\n        // This ensures the mandatory check is bypassed even inside the Quick Entry popup dialog\n        frm.toggle_reqd('item_code', false);\n    },\n    refresh: function(frm) {\n        // Bypass mandatory check on form load if it's a new record\n        if (frm.is_new()) {\n            frm.toggle_reqd('item_code', false);\n        } else {\n            // Force display the field if the item is already saved\n            frm.toggle_display('item_code', true);\n        }\n        \n        // Keep the field permanently read-only so users cannot manually edit it\n        frm.set_df_property('item_code', 'read_only', 1);\n    },\n    validate: function(frm) {\n        let primary_selected = false;\n        \n        // Final sanity check before saving using the table field name\n        if (frm.doc.custom_item_domains) {\n            frm.doc.custom_item_domains.forEach(row => {\n                if (row.primary_domain) {\n                    primary_selected = true;\n                }\n            });\n        }\n        \n        // Alert the user if they try to save without selecting a primary domain\n        if (!primary_selected && frm.is_new()) {\n            frappe.msgprint(__('Please check at least one Primary Domain in the Item Domains table.'));\n            frappe.validated = false;\n        }\n    }\n});\n\n// REAL-TIME CHILD TABLE TRIGGER\n// Using 'Item Domain Detail' because Frappe needs the exact DocType name here\nfrappe.ui.form.on('Item Domain Detail', {\n    primary_domain: function(frm, cdt, cdn) {\n        let row = locals[cdt][cdn];\n        \n        // If user is trying to tick the checkbox\n        if (row.primary_domain) {\n            let primary_count = 0;\n            \n            // Loop through the table field name to count existing active ticks\n            if (frm.doc.custom_item_domains) {\n                frm.doc.custom_item_domains.forEach(d => {\n                    if (d.primary_domain) {\n                        primary_count++;\n                    }\n                });\n            }\n            \n            // If more than one row is ticked, untick the current row immediately and throw a popup alert\n            if (primary_count > 1) {\n                frappe.model.set_value(cdt, cdn, 'primary_domain', 0);\n                frappe.msgprint(__('You cannot select 2 primary domains. Please untick the previous one first.'));\n            }\n        }\n    }\n});\n",
+  "view": "Form"
+ }
+]

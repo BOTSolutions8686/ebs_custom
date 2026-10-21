@@ -1,0 +1,190 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-06-05 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_header",
+  "naming_series",
+  "employee",
+  "employee_name",
+  "column_break_1",
+  "employee_id",
+  "department",
+  "amended_from",
+  "section_break_incident",
+  "date_of_incident",
+  "column_break_2",
+  "status",
+  "incident_type",
+  "section_break_involved",
+  "persons_involved",
+  "section_break_desc",
+  "description",
+  "section_break_attach",
+  "supporting_documents",
+  "section_break_remarks",
+  "hr_remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_header",
+   "fieldtype": "Section Break",
+   "label": "Employee Information"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "COMP-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fetch_if_empty": 1,
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.name",
+   "fetch_if_empty": 1,
+   "fieldname": "employee_id",
+   "fieldtype": "Data",
+   "label": "Employee ID",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fetch_if_empty": 1,
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_incident",
+   "fieldtype": "Section Break",
+   "label": "Incident Details"
+  },
+  {
+   "fieldname": "date_of_incident",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Incident",
+   "reqd": 1
+  },
+  {
+   "fieldname": "incident_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Incident Type",
+   "options": "\nHarassment\nMisconduct\nPolicy Violation\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_involved",
+   "fieldtype": "Section Break",
+   "label": "Persons Involved"
+  },
+  {
+   "fieldname": "persons_involved",
+   "fieldtype": "Small Text",
+   "label": "Person(s) Involved",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_desc",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Long Text",
+   "label": "Description of Incident",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_attach",
+   "fieldtype": "Section Break",
+   "label": "Supporting Documents"
+  },
+  {
+   "fieldname": "supporting_documents",
+   "fieldtype": "Attach",
+   "label": "Supporting Document"
+  },
+  {
+   "fieldname": "section_break_remarks",
+   "fieldtype": "Section Break",
+   "label": "HR Remarks"
+  },
+  {
+   "description": "Internal notes visible to HR Officer only",
+   "fieldname": "hr_remarks",
+   "fieldtype": "Long Text",
+   "label": "HR Remarks"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Employee Complaint",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Submitted\nUnder Review\nResolved"
+  }
+ ],
+ "links": [],
+ "modified": "2026-06-18 12:59:56.895880",
+ "modified_by": "Administrator",
+ "module": "Hr Complaints",
+ "name": "Employee Complaint",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Employee",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

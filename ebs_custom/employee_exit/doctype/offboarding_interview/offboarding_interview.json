@@ -1,0 +1,193 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-06-11 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_header",
+  "naming_series",
+  "employee",
+  "employee_name",
+  "column_break_1",
+  "employee_id",
+  "department",
+  "amended_from",
+  "section_break_link",
+  "resignation_request",
+  "section_break_interview",
+  "exit_interview_date",
+  "column_break_2",
+  "interviewer_name",
+  "section_break_feedback",
+  "reason_for_leaving",
+  "reason_for_leaving_details",
+  "section_break_ratings",
+  "would_recommend",
+  "column_break_aqvf",
+  "overall_experience_rating",
+  "section_break_comments",
+  "comments_feedback"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_header",
+   "fieldtype": "Section Break",
+   "label": "Employee Information"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "EXIT-.YYYY.-.#####",
+   "reqd": 1
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fetch_if_empty": 1,
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.name",
+   "fetch_if_empty": 1,
+   "fieldname": "employee_id",
+   "fieldtype": "Data",
+   "label": "Employee ID",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "employee.department",
+   "fetch_if_empty": 1,
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_link",
+   "fieldtype": "Section Break",
+   "label": "Linked Resignation"
+  },
+  {
+   "description": "Link to the employee's resignation request for traceability",
+   "fieldname": "resignation_request",
+   "fieldtype": "Link",
+   "label": "Resignation Request",
+   "options": "Resignation Request"
+  },
+  {
+   "fieldname": "section_break_interview",
+   "fieldtype": "Section Break",
+   "label": "Interview Details"
+  },
+  {
+   "fieldname": "exit_interview_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Exit Interview Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "interviewer_name",
+   "fieldtype": "Link",
+   "label": "Interviewer",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_feedback",
+   "fieldtype": "Section Break",
+   "label": "Exit Feedback"
+  },
+  {
+   "fieldname": "reason_for_leaving",
+   "fieldtype": "Select",
+   "label": "Primary Reason for Leaving",
+   "options": "\nBetter Opportunity\nCompensation\nWork Environment\nCareer Growth\nPersonal Reasons\nRelocation\nHealth Reasons\nFamily Reasons\nHigher Education\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reason_for_leaving_details",
+   "fieldtype": "Small Text",
+   "label": "Additional Details"
+  },
+  {
+   "fieldname": "section_break_ratings",
+   "fieldtype": "Section Break",
+   "label": "Ratings"
+  },
+  {
+   "fieldname": "would_recommend",
+   "fieldtype": "Select",
+   "label": "Would You Recommend This Company?",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "overall_experience_rating",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Overall Experience Rating",
+   "options": "\n1 - Very Poor\n2 - Poor\n3 - Average\n4 - Good\n5 - Excellent",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_comments",
+   "fieldtype": "Section Break",
+   "label": "Comments & Feedback"
+  },
+  {
+   "fieldname": "comments_feedback",
+   "fieldtype": "Long Text",
+   "label": "Comments / Feedback"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Offboarding Interview",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_aqvf",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-06-19 12:36:25.075676",
+ "modified_by": "Administrator",
+ "module": "Employee Exit",
+ "name": "Offboarding Interview",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

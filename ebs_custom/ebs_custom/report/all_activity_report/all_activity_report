@@ -1,0 +1,167 @@
+import frappe
+
+
+def execute(filters=None):
+    filters = frappe._dict(filters or {})
+
+    columns = [
+        {
+            "label": "Activity Date",
+            "fieldname": "activity_date",
+            "fieldtype": "Datetime",
+            "width": 160,
+        },
+        {
+            "label": "User",
+            "fieldname": "user",
+            "fieldtype": "Link",
+            "options": "User",
+            "width": 180,
+        },
+        {
+            "label": "Activity Type",
+            "fieldname": "activity_type",
+            "fieldtype": "Data",
+            "width": 160,
+        },
+        {
+            "label": "Reference DocType",
+            "fieldname": "reference_doctype",
+            "fieldtype": "Link",
+            "options": "DocType",
+            "width": 180,
+        },
+        {
+            "label": "Reference Name",
+            "fieldname": "reference_name",
+            "fieldtype": "Dynamic Link",
+            "options": "reference_doctype",
+            "width": 200,
+        },
+        {
+            "label": "Description",
+            "fieldname": "description",
+            "fieldtype": "Text",
+            "width": 350,
+        },
+    ]
+
+    conditions = {
+        "comment": "",
+        "activity_log": "",
+        "file": "",
+        "version": "",
+    }
+
+    if filters.get("user"):
+        conditions["comment"] += """
+            AND COALESCE(c.comment_by, c.owner) = %(user)s
+        """
+
+        conditions["activity_log"] += """
+            AND COALESCE(al.user, al.owner) = %(user)s
+        """
+
+        conditions["file"] += """
+            AND f.owner = %(user)s
+        """
+
+        conditions["version"] += """
+            AND v.owner = %(user)s
+        """
+
+    if filters.get("from_date"):
+        conditions["comment"] += """
+            AND c.creation >= %(from_date)s
+        """
+
+        conditions["activity_log"] += """
+            AND al.communication_date >= %(from_date)s
+        """
+
+        conditions["file"] += """
+            AND f.creation >= %(from_date)s
+        """
+
+        conditions["version"] += """
+            AND v.creation >= %(from_date)s
+        """
+
+    if filters.get("to_date"):
+        conditions["comment"] += """
+            AND c.creation < DATE_ADD(%(to_date)s, INTERVAL 1 DAY)
+        """
+
+        conditions["activity_log"] += """
+            AND al.communication_date < DATE_ADD(%(to_date)s, INTERVAL 1 DAY)
+        """
+
+        conditions["file"] += """
+            AND f.creation < DATE_ADD(%(to_date)s, INTERVAL 1 DAY)
+        """
+
+        conditions["version"] += """
+            AND v.creation < DATE_ADD(%(to_date)s, INTERVAL 1 DAY)
+        """
+
+    query = f"""
+        SELECT
+            c.creation AS activity_date,
+            COALESCE(c.comment_by, c.owner) AS user,
+            c.comment_type AS activity_type,
+            c.reference_doctype AS reference_doctype,
+            c.reference_name AS reference_name,
+            c.content AS description
+        FROM `tabComment` c
+        WHERE 1=1
+        {conditions["comment"]}
+
+        UNION ALL
+
+        SELECT
+            al.communication_date AS activity_date,
+            COALESCE(al.user, al.owner) AS user,
+            CONCAT_WS(' - ', al.operation, al.status) AS activity_type,
+            al.reference_doctype AS reference_doctype,
+            al.reference_name AS reference_name,
+            COALESCE(al.subject, al.content) AS description
+        FROM `tabActivity Log` al
+        WHERE 1=1
+        {conditions["activity_log"]}
+
+        UNION ALL
+
+        SELECT
+            f.creation AS activity_date,
+            f.owner AS user,
+            'File Upload' AS activity_type,
+            f.attached_to_doctype AS reference_doctype,
+            f.attached_to_name AS reference_name,
+            f.file_name AS description
+        FROM `tabFile` f
+        WHERE 1=1
+        {conditions["file"]}
+
+        UNION ALL
+
+        SELECT
+            v.creation AS activity_date,
+            v.owner AS user,
+            'Document Updated' AS activity_type,
+            v.ref_doctype AS reference_doctype,
+            v.docname AS reference_name,
+            CONCAT('Document version: ', v.name) AS description
+        FROM `tabVersion` v
+        WHERE 1=1
+        {conditions["version"]}
+
+        ORDER BY activity_date DESC
+    """
+
+    data = frappe.db.sql(
+        query,
+        filters,
+        as_dict=True
+    )
+
+    return columns, data
