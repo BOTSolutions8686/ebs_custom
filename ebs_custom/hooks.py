@@ -206,6 +206,14 @@ after_uninstall = "ebs_custom.branding.after_uninstall"
 # }
 
 doc_events = {
+    "*": {
+        "after_insert": "ebs_custom.hr_requests.events.workflow_notifications.on_update",
+        "on_update": "ebs_custom.hr_requests.events.workflow_notifications.on_update",
+    },
+    "Workflow": {
+        "on_update": "ebs_custom.hr_requests.events.workflow_notifications.clear_workflow_cache",
+        "on_trash": "ebs_custom.hr_requests.events.workflow_notifications.clear_workflow_cache",
+    },
     "GL Entry": {
         "before_insert": "ebs_custom.overrides.branch_logic.set_branch_in_gl",
         "before_save": "ebs_custom.overrides.branch_logic.set_branch_in_gl"
@@ -270,6 +278,10 @@ scheduler_events = {
 # extend_doctype_class = {
 # 	"Task": "ebs_custom.custom.task.CustomTaskMixin"
 # }
+
+override_doctype_class = {
+	"PWA Notification": "ebs_custom.overrides.pwa_notification.CustomPWANotification",
+}
 
 # Overriding Methods
 # ------------------------------

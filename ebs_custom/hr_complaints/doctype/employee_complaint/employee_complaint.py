@@ -5,6 +5,8 @@ import frappe
 from frappe.model.document import Document
 from frappe import _
 
+from ebs_custom.hr_requests.utils.notifications import notify_user_list
+
 
 class EmployeeComplaint(Document):
 	# begin: auto-generated types
@@ -151,7 +153,6 @@ class EmployeeComplaint(Document):
 			url=frappe.utils.get_url_to_form("Employee Complaint", self.name),
 		)
 
-		# Email notification
 		frappe.sendmail(
 			recipients=recipients,
 			subject=subject,
@@ -160,14 +161,11 @@ class EmployeeComplaint(Document):
 			reference_name=self.name,
 		)
 
-		# In-app bell notifications
-		for user in recipients:
-			frappe.get_doc({
-				"doctype": "Notification Log",
-				"subject": subject,
-				"email_content": message,
-				"document_type": self.doctype,
-				"document_name": self.name,
-				"for_user": user,
-				"type": "Alert",
-			}).insert(ignore_permissions=True)
+		notify_user_list(
+			self,
+			recipients,
+			subject,
+			_("New complaint {0} from {1} needs review.").format(
+				self.name, self.employee_name or self.employee
+			),
+		)

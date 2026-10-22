@@ -5,6 +5,8 @@ import frappe
 from frappe.model.document import Document
 from frappe import _
 
+from ebs_custom.hr_requests.utils.notifications import notify_user_list
+
 
 class OffboardingInterview(Document):
 	# begin: auto-generated types
@@ -116,6 +118,16 @@ class OffboardingInterview(Document):
 		self._check_approver_permission()
 		frappe.db.set_value(self.doctype, self.name, "status", "Rejected")
 		self.reload()
+		employee_user = frappe.db.get_value("Employee", self.employee, "user_id")
+		if employee_user:
+			note = _("Reason: {0}").format(reason) if reason else _("No reason was provided.")
+			notify_user_list(
+				self,
+				[employee_user],
+				_("Offboarding Interview rejected: {0}").format(self.name),
+				note,
+				skip_session_user=False,
+			)
 		frappe.msgprint(_("Offboarding Interview has been rejected."))
 
 	def _check_approver_permission(self):
@@ -159,24 +171,22 @@ class OffboardingInterview(Document):
 			"The exit interview for the following employee has received final HR Manager approval."
 		)
 
+		recipients = list(set(recipients))
 		frappe.sendmail(
-			recipients=list(set(recipients)),
+			recipients=recipients,
 			subject=subject,
 			message=message,
 			reference_doctype=self.doctype,
 			reference_name=self.name,
 		)
-
-		for user in list(set(recipients)):
-			frappe.get_doc({
-				"doctype": "Notification Log",
-				"subject": subject,
-				"email_content": message,
-				"document_type": self.doctype,
-				"document_name": self.name,
-				"for_user": user,
-				"type": "Alert",
-			}).insert(ignore_permissions=True)
+		notify_user_list(
+			self,
+			recipients,
+			subject,
+			_("Offboarding interview {0} for {1} has final approval.").format(
+				self.name, self.employee_name or self.employee
+			),
+		)
 
 	# ------------------------------------------------------------------ #
 	# Notification helpers                                                 #
@@ -208,17 +218,14 @@ class OffboardingInterview(Document):
 			reference_doctype=self.doctype,
 			reference_name=self.name,
 		)
-
-		for user in recipients:
-			frappe.get_doc({
-				"doctype": "Notification Log",
-				"subject": subject,
-				"email_content": message,
-				"document_type": self.doctype,
-				"document_name": self.name,
-				"for_user": user,
-				"type": "Alert",
-			}).insert(ignore_permissions=True)
+		notify_user_list(
+			self,
+			recipients,
+			subject,
+			_("Offboarding interview {0} for {1} needs your approval ({2}).").format(
+				self.name, self.employee_name or self.employee, status_label
+			),
+		)
 
 	def _build_email(self, heading, note):
 		return """

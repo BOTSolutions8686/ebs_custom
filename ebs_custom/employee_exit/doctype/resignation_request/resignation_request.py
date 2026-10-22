@@ -6,6 +6,8 @@ from frappe.model.document import Document
 from frappe import _
 from frappe.utils import date_diff, getdate
 
+from ebs_custom.hr_requests.utils.notifications import notify_user_list
+
 
 class ResignationRequest(Document):
 	# begin: auto-generated types
@@ -196,24 +198,22 @@ class ResignationRequest(Document):
 			     "Please take necessary action for payroll clearance and offboarding.",
 		)
 
+		recipients = list(set(recipients))
 		frappe.sendmail(
-			recipients=list(set(recipients)),
+			recipients=recipients,
 			subject=subject,
 			message=message,
 			reference_doctype=self.doctype,
 			reference_name=self.name,
 		)
-
-		for user in list(set(recipients)):
-			frappe.get_doc({
-				"doctype": "Notification Log",
-				"subject": subject,
-				"email_content": message,
-				"document_type": self.doctype,
-				"document_name": self.name,
-				"for_user": user,
-				"type": "Alert",
-			}).insert(ignore_permissions=True)
+		notify_user_list(
+			self,
+			recipients,
+			subject,
+			_("Resignation {0} for {1} has final approval.").format(
+				self.name, self.employee_name or self.employee
+			),
+		)
 
 	# ------------------------------------------------------------------ #
 	# Notification helpers                                                 #
@@ -245,17 +245,14 @@ class ResignationRequest(Document):
 			reference_doctype=self.doctype,
 			reference_name=self.name,
 		)
-
-		for user in recipients:
-			frappe.get_doc({
-				"doctype": "Notification Log",
-				"subject": subject,
-				"email_content": message,
-				"document_type": self.doctype,
-				"document_name": self.name,
-				"for_user": user,
-				"type": "Alert",
-			}).insert(ignore_permissions=True)
+		notify_user_list(
+			self,
+			recipients,
+			subject,
+			_("Resignation {0} for {1} needs your approval ({2}).").format(
+				self.name, self.employee_name or self.employee, status_label
+			),
+		)
 
 	def _notify_rejection(self, reason=None):
 		employee_user = frappe.db.get_value(
@@ -281,6 +278,7 @@ class ResignationRequest(Document):
 			reference_doctype=self.doctype,
 			reference_name=self.name,
 		)
+		notify_user_list(self, [employee_user], subject, rejection_note, skip_session_user=False)
 
 	def _build_notification_email(self, heading, note):
 		return """

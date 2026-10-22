@@ -2,7 +2,6 @@ import frappe
 from frappe.utils import getdate, today
 
 from ebs_custom.hr_requests.utils.notifications import notify_users, notify_users_by_email
-from ebs_custom.hr_requests.utils.workflow_helpers import STATE_APPROVER_ROLE
 
 FINAL_NOTIFY_ROLES = ["HR Officer", "Accounts Officer"]
 
@@ -11,48 +10,7 @@ PROMOTION_DOCTYPE = "Promotion Request"
 
 
 def on_hr_request_update(doc, method=None):
-	_handle_workflow_notifications(doc)
 	_handle_final_approval(doc)
-
-
-def _handle_workflow_notifications(doc):
-	if doc.is_new():
-		return
-
-	previous_state = doc.get_doc_before_save().get("workflow_state") if doc.get_doc_before_save() else None
-	current_state = doc.get("workflow_state")
-
-	if not current_state or previous_state == current_state:
-		return
-
-	employee_label = doc.get("employee_name") or doc.get("employee")
-
-	if current_state == "Rejected":
-		notify_users(
-			doc,
-			["Branch Manager", "Division Manager"],
-			subject=f"{doc.doctype} Rejected - {doc.name}",
-			message=f"Request for {employee_label} was rejected at {previous_state}.",
-		)
-		return
-
-	if current_state in STATE_APPROVER_ROLE:
-		role = STATE_APPROVER_ROLE[current_state]
-		notify_users(
-			doc,
-			[role],
-			subject=f"Action Required: {doc.doctype} - {doc.name}",
-			message=(
-				f"A {doc.doctype} for {employee_label} requires your approval. "
-				f"Current stage: {current_state}."
-			),
-		)
-		notify_users_by_email(
-			doc,
-			[role],
-			subject=f"Action Required: {doc.doctype} - {doc.name}",
-			message=f"Please review {doc.doctype} <b>{doc.name}</b> for {employee_label}.",
-		)
 
 
 def _handle_final_approval(doc):

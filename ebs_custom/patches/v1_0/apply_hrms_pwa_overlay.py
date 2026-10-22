@@ -208,14 +208,19 @@ def _patch_home_vue(hrms_root):
 	with open(path, encoding="utf-8") as handle:
 		content = handle.read()
 
-	if "SalaryAdjustmentFormView" in content:
+	content = content.replace("SalaryAdjustmentFormView", "SalaryAdjustmentRequestFormView")
+	content = content.replace("SalaryAdjustmentDetailView", "SalaryAdjustmentRequestDetailView")
+
+	if "SalaryAdjustmentRequestFormView" in content:
+		with open(path, "w", encoding="utf-8") as handle:
+			handle.write(content)
 		return
 
 	quick_links = """
 	{
 		icon: markRaw(SalaryIcon),
 		title: __("Salary Adjustment"),
-		route: "SalaryAdjustmentFormView",
+		route: "SalaryAdjustmentRequestFormView",
 	},
 	{
 		icon: markRaw(LeaveIcon),

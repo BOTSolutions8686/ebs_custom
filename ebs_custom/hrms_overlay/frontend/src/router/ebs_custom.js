@@ -1,47 +1,38 @@
-const routes = [
-	{
-		path: "/salary-adjustment/new",
-		name: "SalaryAdjustmentFormView",
-		component: () => import("@/views/ebs_custom/GenericHRForm.vue"),
-		props: { doctype: "Salary Adjustment Request" },
-	},
-	{
-		path: "/salary-adjustment/:id",
-		name: "SalaryAdjustmentDetailView",
-		component: () => import("@/views/ebs_custom/GenericHRForm.vue"),
-		props: (route) => ({
-			doctype: "Salary Adjustment Request",
-			id: route.params.id,
-		}),
-	},
-	{
-		path: "/promotion-request/new",
-		name: "PromotionRequestFormView",
-		component: () => import("@/views/ebs_custom/GenericHRForm.vue"),
-		props: { doctype: "Promotion Request" },
-	},
-	{
-		path: "/promotion-request/:id",
-		name: "PromotionRequestDetailView",
-		component: () => import("@/views/ebs_custom/GenericHRForm.vue"),
-		props: (route) => ({
-			doctype: "Promotion Request",
-			id: route.params.id,
-		}),
-	},
-	{
-		path: "/branch-attendance-approval/new",
-		name: "BranchAttendanceApprovalFormView",
-		component: () => import("@/views/ebs_custom/BranchAttendanceApprovalForm.vue"),
-	},
-	{
-		path: "/branch-attendance-approval/:id",
-		name: "BranchAttendanceApprovalDetailView",
-		component: () => import("@/views/ebs_custom/BranchAttendanceApprovalForm.vue"),
-		props: (route) => ({
-			id: route.params.id,
-		}),
-	},
+const genericForm = () => import("@/views/ebs_custom/GenericHRForm.vue")
+const attendanceForm = () => import("@/views/ebs_custom/BranchAttendanceApprovalForm.vue")
+
+const forms = [
+	["salary-adjustment", "Salary Adjustment Request", genericForm],
+	["promotion-request", "Promotion Request", genericForm],
+	["branch-attendance-approval", "Branch Attendance Approval", attendanceForm],
+	["branch-transfer-request", "Branch Transfer Request", genericForm],
+	["shift-transfer-request", "Shift Transfer Request", genericForm],
+	["salary-statement-request", "Salary Statement Request", genericForm],
+	["resignation-request", "Resignation Request", genericForm],
+	["offboarding-interview", "Offboarding Interview", genericForm],
+	["employee-complaint", "Employee Complaint", genericForm],
+	["employee-data-adjustment", "Employee Data Adjustment Request", genericForm],
 ]
+
+const routes = forms.flatMap(([path, doctype, component]) => {
+	const name = doctype.replace(/\s+/g, "")
+	return [
+		{
+			path: `/${path}/new`,
+			name: `${name}FormView`,
+			component,
+			props: component === attendanceForm ? undefined : { doctype },
+		},
+		{
+			path: `/${path}/:id`,
+			name: `${name}DetailView`,
+			component,
+			props: (route) =>
+				component === attendanceForm
+					? { id: route.params.id }
+					: { doctype, id: route.params.id },
+		},
+	]
+})
 
 export default routes
