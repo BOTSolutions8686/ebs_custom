@@ -1,0 +1,301 @@
+Absent,Yok
+Actions,İşlemler
+Add Expense,Masraf Ekle
+Add Tax,Vergi Ekle
+Add at least one change.,En az bir değişiklik ekleyin.
+Advance Amount,Avans Tutarı
+All Branches,Tüm Şubeler
+Apply Filters,Filtreleri Uygula
+Apply and Complete,Onayla ve Uygula
+Approval,Onay
+Approve,Onayla
+Approved,Onaylandı
+Are you sure you want to delete the attachment,Eki silmek istediğinize emin misiniz?
+Are you sure you want to delete the {0},{0} kaydını silmek istediğinize emin misiniz?
+Assign Shift,Vardiya Ata
+Assign to {0} employees,{0} çalışana ata
+Attachments,Ekler
+Attendance,Devam
+Attendance Calendar,Devam Takvimi
+Attendance Request History,Devam Talebi Geçmişi
+Bank A/C No.,Banka Hesap No
+Bank Account,Banka Hesabı
+Bank Account No,Banka Hesap No
+Bank Name,Banka Adı
+Blood Group,Kan Grubu
+Branch,Şube
+Branch Attendance Approval,Şube Devam Onayı
+Cancel,İptal
+Cancelled,İptal edildi
+Cell Number,Cep Telefonu
+Change My Information,Bilgilerimi Değiştir
+Change Password,Şifre Değiştir
+Check In,Giriş Yap
+Check Out,Çıkış Yap
+Check-in,Giriş
+Check-out,Çıkış
+"Choose English, Arabic, or Turkish.","İngilizce, Arapça veya Türkçe seçin."
+Claim an Expense,Masraf Talebi
+Claimed,Talep edildi
+Clear All,Tümünü Temizle
+Close,Kapat
+Company,Şirket
+Company Email,Şirket E-postası
+Company Information,Şirket Bilgileri
+Confirm,Onayla
+Confirm New Password,Yeni Şifreyi Onayla
+Confirm {0},{0} onayla
+Contact Information,İletişim Bilgileri
+Contact Person,İletişim Kişisi
+Cost to Company,Şirkete Maliyet
+Could not assign the shift,Vardiya atanamadı
+Could not submit the request,Talep gönderilemedi
+Created,Oluşturuldu
+Current Address,Güncel Adres
+Current Password,Mevcut Şifre
+Current Value,Mevcut Değer
+Date of Birth,Doğum Tarihi
+Date of Joining,İşe Giriş Tarihi
+Delete,Sil
+Delete Attachment,Eki Sil
+Delete {0},{0} sil
+Department,Departman
+Designation,Ünvan
+Disabling Push Notifications...,Telefon bildirimleri kapatılıyor...
+Dismiss,Kapat
+Document {0} failed!,{0} belgesi başarısız!
+Document {0} successfully!,{0} belgesi tamamlandı!
+Download PDF,PDF İndir
+Draft,Taslak
+Edit Expense Item,Masraf Kalemini Düzenle
+Edit Expense Tax,Masraf Vergisini Düzenle
+Email,E-posta
+Emergency Phone,Acil Telefon
+Employee,Çalışan
+Employee Advance Balance,Avans Bakiyesi
+Employee Advances,Çalışan Avansları
+Employee Checkin History,Giriş Çıkış Geçmişi
+Employee Details,Çalışan Bilgileri
+Employee Name,Çalışan Adı
+Employee Number,Sicil No
+Employment Type,Çalışma Türü
+Empty,Boş
+Enable Push Notifications,Telefon Bildirimlerini Aç
+Enabling Push Notifications...,Telefon bildirimleri açılıyor...
+End Date,Bitiş Tarihi
+End Date cannot be before Start Date,Bitiş tarihi başlangıç tarihinden önce olamaz
+Enter {0},{0} girin
+Error,Hata
+Error creating {0},{0} oluşturulurken hata
+Error deleting {0},{0} silinirken hata
+Error downloading PDF,PDF indirilirken hata
+Error updating {0},{0} güncellenirken hata
+Expense Claim Summary,Masraf Talebi Özeti
+Expense Claims,Masraf Talepleri
+Expense Item,Masraf Kalemi
+Expense Tax,Masraf Vergisi
+Expenses,Masraflar
+Failed,Başarısız
+Failed to update password,Şifre güncellenemedi
+Field,Alan
+File Preview,Dosya Önizleme
+Filters,Filtreler
+Friday,Cuma
+From Date,Başlangıç Tarihi
+Gender,Cinsiyet
+Geolocation is not supported by your current browser,Bu tarayıcı konum bilgisini desteklemiyor
+Get the app on your device for easy access & a better experience!,Kolay erişim ve daha iyi bir deneyim için uygulamayı cihazınıza kurun
+Get the app on your iPhone for easy access & a better experience,Kolay erişim ve daha iyi bir deneyim için uygulamayı iPhone cihazınıza kurun
+Go to Login,Girişe Git
+Go to Reset Password page,Şifre Sıfırlama Sayfasına Git
+Grade,Kademe
+Gross Pay,Brüt Ücret
+Half Day,Yarım Gün
+"Hey, {0} 👋",Merhaba {0} 👋
+Holiday List,Tatil Listesi
+Home,Ana Sayfa
+IBAN,IBAN
+IFSC Code,IFSC Kodu
+In-app alerts are on. Phone push will connect when the relay is ready.,Uygulama içi bildirimler açık. Telefon bildirimi aktarım servisi hazır olunca bağlanır.
+Install,Yükle
+Install BOT HR,BOT HR Yükle
+Language,Dil
+Last {0} was at {1},Son {0}: {1}
+Latitude: {0}°,Enlem: {0}°
+Leave Balance,İzin Bakiyesi
+Leave History,İzin Geçmişi
+Leave Type,İzin Türü
+Leaves,İzinler
+Leaves & Holidays,İzinler ve Tatiller
+Load Check-ins,Girişleri Yükle
+Load more,Daha fazla yükle
+Loaded,Yüklendi
+Loading,Yükleniyor
+Locating...,Konum alınıyor...
+Log Out,Çıkış Yap
+Log Type,Kayıt Türü
+Login,Giriş
+Login Failed,Giriş başarısız
+Login to BOT HR,BOT HR Giriş
+Longitude: {0}°,Boylam: {0}°
+MICR Code,MICR Kodu
+Mark all as read,Tümünü okundu işaretle
+Menu,Menü
+Monday,Pazartesi
+My Advances,Avanslarım
+My Claims,Taleplerim
+My Leaves,İzinlerim
+My Requests,Taleplerim
+New,Yeni
+New Expense Item,Yeni Masraf Kalemi
+New Expense Tax,Yeni Masraf Vergisi
+New Password,Yeni Şifre
+New Value,Yeni Değer
+New passwords do not match,Yeni şifreler eşleşmiyor
+New {0},Yeni {0}
+No,Hayır
+No active employee found associated with the email ID {0}. Try logging in with your employee email ID or contact your HR manager for access.,{0} e-postasına bağlı aktif çalışan yok. Çalışan e-postanızla giriş yapın veya İK yöneticinize başvurun.
+No advances found,Avans bulunamadı
+No employees,Çalışan yok
+No employees found for this branch.,Bu şubede çalışan yok.
+No expenses added,Masraf eklenmedi
+No login methods are available. Please contact your administrator.,Giriş yöntemi yok. Yöneticinize başvurun.
+No salary slips found,Maaş bordrosu bulunamadı
+No shift,Vardiya yok
+No taxes added,Vergi eklenmedi
+No {0} added,{0} eklenmedi
+No {0} found,{0} bulunamadı
+Notifications,Bildirimler
+OTP Code,Doğrulama Kodu
+OTP Verification,Kod Doğrulama
+On Leave,İzinli
+Only a manager can assign shifts for employees.,Vardiya atamasını yalnızca yönetici yapabilir.
+Open,Açık
+PAN Number,PAN Numarası
+Paid,Ödendi
+Paid Amount,Ödenen Tutar
+Partly Claimed and Returned,Kısmen talep edildi ve iade edildi
+Password,Şifre
+Payroll Cost Center,Bordro Masraf Merkezi
+Payroll Period,Bordro Dönemi
+Pending,Beklemede
+Pending Requests,Bekleyen Talepler
+Permanent Address,Kalıcı Adres
+Permanently cancel {0},{0} kalıcı olarak iptal et
+Permanently submit {0},{0} kalıcı olarak onayla
+Personal Email,Kişisel E-posta
+Please fill all fields,Lütfen tüm alanları doldurun
+Please select Branch and Attendance Date first.,Önce şube ve devam tarihini seçin.
+Posting Date,Kayıt Tarihi
+Preferred Email,Tercih Edilen E-posta
+Present,Mevcut
+Profile,Profil
+Promotion Request,Terfi Talebi
+Provident Fund Account,Birikim Fonu Hesabı
+Push Notification permission denied,Telefon bildirimi izni reddedildi
+Push notifications disabled,Telefon bildirimleri kapalı
+Push notifications have been disabled on your site,Telefon bildirimleri bu sitede kapalı
+Quick Links,Hızlı Bağlantılar
+Reason,Gerekçe
+Reason For Change,Değişiklik Gerekçesi
+Recent Attendance Requests,Son Devam Talepleri
+Recent Expenses,Son Masraflar
+Recent Leaves,Son İzinler
+Recent Shift Requests,Son Vardiya Talepleri
+Reject,Reddet
+Rejected,Reddedildi
+Rejection,Red
+Reload,Yenile
+Reports to,Bağlı Olduğu Yönetici
+Request Attendance,Devam Talebi
+Request Leave,İzin Talebi
+Request a Leave,İzin Talebi
+Request a Shift,Vardiya Talebi
+Request an Advance,Avans Talebi
+Request submitted,Talep gönderildi
+Required,Zorunlu
+Reset Password,Şifreyi Sıfırla
+Returned,İade edildi
+Salary,Maaş
+Salary Adjustment,Maaş Düzenleme
+Salary Information,Maaş Bilgileri
+Salary Mode,Maaş Ödeme Şekli
+Salary Slips,Maaş Bordroları
+Sanctioned,Onaylandı
+Saturday,Cumartesi
+Select,Seçin
+"Select Branch and Attendance Date first, then load employees.","Önce şube ve devam tarihini seçin, sonra çalışanları yükleyin."
+Select Payroll Period,Bordro Dönemi Seçin
+Select a shift type.,Bir vardiya türü seçin.
+Select at least one employee.,En az bir çalışan seçin.
+Select the start date.,Başlangıç tarihini seçin.
+Select {0},{0} seçin
+Settings,Ayarlar
+Settle against Advances,Avansla Mahsup Et
+Shift,Vardiya
+Shift Assignment History,Vardiya Atama Geçmişi
+Shift Type,Vardiya Türü
+Shift assignment finished,Vardiya ataması tamamlandı
+Start Date,Başlangıç Tarihi
+Status,Durum
+Submit,Gönder
+Success,Başarılı
+Sunday,Pazar
+Taxes & Charges,Vergiler ve Kesintiler
+Team Advances,Ekip Avansları
+Team Claims,Ekip Talepleri
+Team Leaves,Ekip İzinleri
+Team Requests,Ekip Talepleri
+This field cannot be updated: {0},Bu alan güncellenemez: {0}
+Thursday,Perşembe
+To Date,Bitiş Tarihi
+To Date cannot be before From Date,Bitiş tarihi başlangıç tarihinden önce olamaz
+Total Claimed Amount,Toplam Talep Tutarı
+Tuesday,Salı
+Unclaimed Amount,Talep Edilmeyen Tutar
+Unpaid,Ödenmedi
+Upcoming Holidays,Yaklaşan Tatiller
+Upcoming Shifts,Yaklaşan Vardiyalar
+Update Expense,Masrafı Güncelle
+Update Password,Şifreyi Güncelle
+Update Tax,Vergiyi Güncelle
+Upload images or documents,Fotoğraf veya belge yükleyin
+Uploading...,Yükleniyor...
+Verify,Doğrula
+View All,Tümünü Gör
+View Leave History,İzin Geçmişini Gör
+View List,Listeyi Gör
+View Salary Slips,Maaş Bordrolarını Gör
+Wednesday,Çarşamba
+Work From Home,Evden Çalışma
+Year To Date,Yılbaşından Bugüne
+Yes,Evet
+You have no advances,Avansınız yok
+You have no leaves allocated,Tanımlı izniniz yok
+You have no notifications,Bildiriminiz yok
+You have no pending requests,Bekleyen talebiniz yok
+You have no requests,Talebiniz yok
+You have no upcoming holidays,Yaklaşan tatiliniz yok
+You have no upcoming shifts,Yaklaşan vardiyanız yok
+Your password has been updated.,Şifreniz güncellendi.
+Your password has expired. Please reset your password to continue,Şifrenizin süresi doldu. Devam etmek için şifrenizi sıfırlayın
+cancellation,iptal
+cancelled,iptal edildi
+check-in,giriş
+check-out,çıkış
+on,tarihinde
+submission,gönderim
+submitted,gönderildi
+yesterday,dün
+{0} & {1} more,{0} ve {1} tane daha
+{0} Unread,{0} okunmamış
+{0} balance,{0} bakiyesi
+{0} created successfully!,{0} oluşturuldu!
+{0} deleted successfully!,{0} silindi!
+{0} employee(s) loaded,{0} çalışan yüklendi
+{0} failed!,{0} başarısız!
+{0} successful!,{0} başarılı!
+{0} successfully!,{0} tamamlandı!
+{0} updated successfully!,{0} güncellendi!
+{0}: {1},{0}: {1}
+{0}d,{0} g

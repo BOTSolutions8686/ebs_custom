@@ -19,6 +19,18 @@
 					</header>
 
 					<div class="flex flex-col gap-5 my-4 w-full p-4">
+						<div class="flex flex-col bg-white rounded p-4 gap-2">
+							<label class="text-base font-normal text-gray-800">{{ __("Language") }}</label>
+							<select
+								class="border rounded px-3 py-2 text-base text-gray-900"
+								:value="language"
+								@change="changeLanguage"
+							>
+								<option value="en">English</option>
+								<option value="ar">العربية</option>
+								<option value="tr">Türkçe</option>
+							</select>
+						</div>
 						<div class="flex flex-col bg-white rounded">
 							<div
 								class="flex flex-row cursor-pointer flex-start p-4 items-center justify-between border-b"
@@ -75,7 +87,7 @@
 <script setup>
 import { IonPage, IonContent } from "@ionic/vue"
 import { useRouter } from "vue-router"
-import { FeatherIcon, Switch, toast, LoadingIndicator, Button } from "frappe-ui"
+import { FeatherIcon, Switch, toast, LoadingIndicator, Button, createResource } from "frappe-ui"
 
 import { computed, inject, ref } from "vue"
 
@@ -84,30 +96,40 @@ import { arePushNotificationsEnabled } from "@/data/notifications"
 const __ = inject("$translate")
 const router = useRouter()
 
+const supportedLanguages = ["en", "ar", "tr"]
+const bootLanguage = (window.frappe?.boot?.lang || "en").split("-")[0]
+const language = ref(supportedLanguages.includes(bootLanguage) ? bootLanguage : "en")
+const relayReady = computed(
+	() => Boolean(window.frappe?.boot.push_relay_server_url && arePushNotificationsEnabled.data)
+)
 const pushNotificationState = ref(
-	window.frappePushNotification?.isNotificationEnabled()
+	relayReady.value ? Boolean(window.frappePushNotification?.isNotificationEnabled()) : true
 )
 const isLoading = ref(false)
 
-const disablePushSetting = computed(() => {
-	return (
-		!(
-			window.frappe?.boot.push_relay_server_url &&
-			arePushNotificationsEnabled.data
-		) || isLoading.value
-	)
-})
+const disablePushSetting = computed(() => isLoading.value)
 
 const description = computed(() => {
-	return !(
-		window.frappe?.boot.push_relay_server_url &&
-		arePushNotificationsEnabled.data
-	)
-		? __("Push notifications have been disabled on your site")
-		: ""
+	return relayReady.value ? "" : __("In-app alerts are on. Phone push will connect when the relay is ready.")
 })
 
+const setLanguage = createResource({
+	url: "ebs_custom.hr_requests.api.set_my_language",
+	onSuccess() {
+		window.location.reload()
+	},
+})
+
+const changeLanguage = (event) => {
+	language.value = event.target.value
+	setLanguage.submit({ language: language.value })
+}
+
 const togglePushNotifications = (newValue) => {
+	if (!relayReady.value) {
+		pushNotificationState.value = true
+		return
+	}
 	if (newValue) {
 		enablePushNotifications()
 	} else {

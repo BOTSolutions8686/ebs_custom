@@ -11,6 +11,16 @@ frappe.ui.form.on("Employee Data Adjustment Request", {
         if (frm.doc.__islocal) {
             frm.trigger("set_employee_fields");
         }
+
+        if (
+            frm.doc.docstatus === 0 &&
+            !frm.doc.__islocal &&
+            frappe.user.has_role(["System Manager", "HR Manager", "HR Officer", "HR User"])
+        ) {
+            frm.add_custom_button(__("Apply and Complete"), function() {
+                frm.save("Submit");
+            }).addClass("btn-primary");
+        }
     },
 
     set_employee_fields: function(frm) {

@@ -58,6 +58,11 @@ import { inject } from "vue"
 
 const user = inject("$user")
 
+const language = window.frappe?.boot?.lang || "en"
+const rtl = language === "ar" || language.startsWith("ar-")
+document.documentElement.lang = language
+document.documentElement.dir = rtl ? "rtl" : "ltr"
+
 const props = defineProps({
 	pageTitle: {
 		type: String,

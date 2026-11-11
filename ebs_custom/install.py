@@ -19,8 +19,10 @@ def after_migrate():
 	setup_attendance_workflow()
 	setup_hr_workflows()
 	from ebs_custom.hr_requests.utils.notifications import ensure_pwa_notification_access
+	from ebs_custom.hr_requests.api import ensure_information_request_access
 
 	ensure_pwa_notification_access()
+	ensure_information_request_access()
 	_apply_pwa_overlay_and_build()
 
 

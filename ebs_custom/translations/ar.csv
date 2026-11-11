@@ -1,0 +1,301 @@
+Absent,غائب
+Actions,إجراءات
+Add Expense,إضافة مصروف
+Add Tax,إضافة ضريبة
+Add at least one change.,أضف تغييرًا واحدًا على الأقل.
+Advance Amount,مبلغ السلفة
+All Branches,كل الفروع
+Apply Filters,تطبيق التصفية
+Apply and Complete,اعتماد وتطبيق
+Approval,اعتماد
+Approve,اعتماد
+Approved,معتمد
+Are you sure you want to delete the attachment,هل تريد حذف المرفق؟
+Are you sure you want to delete the {0},هل تريد حذف {0}؟
+Assign Shift,تعيين الوردية
+Assign to {0} employees,تعيين لـ {0} موظفين
+Attachments,المرفقات
+Attendance,الحضور
+Attendance Calendar,تقويم الحضور
+Attendance Request History,سجل طلبات الحضور
+Bank A/C No.,رقم الحساب البنكي
+Bank Account,الحساب البنكي
+Bank Account No,رقم الحساب البنكي
+Bank Name,اسم البنك
+Blood Group,فصيلة الدم
+Branch,الفرع
+Branch Attendance Approval,اعتماد حضور الفرع
+Cancel,إلغاء
+Cancelled,ملغى
+Cell Number,رقم الجوال
+Change My Information,تغيير بياناتي
+Change Password,تغيير كلمة المرور
+Check In,تسجيل الحضور
+Check Out,تسجيل الانصراف
+Check-in,تسجيل الحضور
+Check-out,تسجيل الانصراف
+"Choose English, Arabic, or Turkish.",اختر الإنجليزية أو العربية أو التركية.
+Claim an Expense,مطالبة بمصروف
+Claimed,تمت المطالبة
+Clear All,مسح الكل
+Close,إغلاق
+Company,الشركة
+Company Email,البريد الإلكتروني للشركة
+Company Information,معلومات الشركة
+Confirm,تأكيد
+Confirm New Password,تأكيد كلمة المرور الجديدة
+Confirm {0},تأكيد {0}
+Contact Information,معلومات الاتصال
+Contact Person,شخص للاتصال
+Cost to Company,التكلفة على الشركة
+Could not assign the shift,تعذر تعيين الوردية
+Could not submit the request,تعذر إرسال الطلب
+Created,تم الإنشاء
+Current Address,العنوان الحالي
+Current Password,كلمة المرور الحالية
+Current Value,القيمة الحالية
+Date of Birth,تاريخ الميلاد
+Date of Joining,تاريخ الالتحاق
+Delete,حذف
+Delete Attachment,حذف المرفق
+Delete {0},حذف {0}
+Department,القسم
+Designation,المسمى الوظيفي
+Disabling Push Notifications...,جارٍ إيقاف إشعارات الهاتف...
+Dismiss,إغلاق
+Document {0} failed!,فشل المستند {0}!
+Document {0} successfully!,تم المستند {0} بنجاح!
+Download PDF,تنزيل PDF
+Draft,مسودة
+Edit Expense Item,تعديل بند المصروف
+Edit Expense Tax,تعديل ضريبة المصروف
+Email,البريد الإلكتروني
+Emergency Phone,هاتف الطوارئ
+Employee,الموظف
+Employee Advance Balance,رصيد السلف
+Employee Advances,سلف الموظف
+Employee Checkin History,سجل تسجيل الحضور
+Employee Details,تفاصيل الموظف
+Employee Name,اسم الموظف
+Employee Number,الرقم الوظيفي
+Employment Type,نوع التوظيف
+Empty,فارغ
+Enable Push Notifications,تفعيل إشعارات الهاتف
+Enabling Push Notifications...,جارٍ تفعيل إشعارات الهاتف...
+End Date,تاريخ النهاية
+End Date cannot be before Start Date,تاريخ النهاية لا يمكن أن يسبق تاريخ البداية
+Enter {0},أدخل {0}
+Error,خطأ
+Error creating {0},خطأ أثناء إنشاء {0}
+Error deleting {0},خطأ أثناء حذف {0}
+Error downloading PDF,خطأ أثناء تنزيل PDF
+Error updating {0},خطأ أثناء تحديث {0}
+Expense Claim Summary,ملخص مطالبة المصروف
+Expense Claims,مطالبات المصروفات
+Expense Item,بند المصروف
+Expense Tax,ضريبة المصروف
+Expenses,النفقات
+Failed,فشل
+Failed to update password,تعذر تحديث كلمة المرور
+Field,الحقل
+File Preview,معاينة الملف
+Filters,تصفية
+Friday,الجمعة
+From Date,من تاريخ
+Gender,الجنس
+Geolocation is not supported by your current browser,الموقع الجغرافي غير مدعوم في هذا المتصفح
+Get the app on your device for easy access & a better experience!,ثبّت التطبيق على جهازك لسهولة الوصول وتجربة أفضل
+Get the app on your iPhone for easy access & a better experience,ثبّت التطبيق على آيفون لسهولة الوصول وتجربة أفضل
+Go to Login,الذهاب لتسجيل الدخول
+Go to Reset Password page,الذهاب لصفحة إعادة تعيين كلمة المرور
+Grade,الدرجة
+Gross Pay,إجمالي الراتب
+Half Day,نصف يوم
+"Hey, {0} 👋",مرحبًا {0} 👋
+Holiday List,قائمة العطل
+Home,الرئيسية
+IBAN,الآيبان
+IFSC Code,رمز IFSC
+In-app alerts are on. Phone push will connect when the relay is ready.,التنبيهات داخل التطبيق مفعّلة. إشعار الهاتف يعمل عند جاهزية خدمة الإرسال.
+Install,تثبيت
+Install BOT HR,تثبيت BOT HR
+Language,اللغة
+Last {0} was at {1},آخر {0} كان في {1}
+Latitude: {0}°,خط العرض: {0}°
+Leave Balance,رصيد الإجازات
+Leave History,سجل الإجازات
+Leave Type,نوع الإجازة
+Leaves,الإجازات
+Leaves & Holidays,الإجازات والعطل
+Load Check-ins,تحميل تسجيلات الحضور
+Load more,تحميل المزيد
+Loaded,تم التحميل
+Loading,جارٍ التحميل
+Locating...,جارٍ تحديد الموقع...
+Log Out,تسجيل الخروج
+Log Type,نوع التسجيل
+Login,تسجيل الدخول
+Login Failed,فشل تسجيل الدخول
+Login to BOT HR,تسجيل الدخول إلى BOT HR
+Longitude: {0}°,خط الطول: {0}°
+MICR Code,رمز MICR
+Mark all as read,تعليم الكل كمقروء
+Menu,القائمة
+Monday,الاثنين
+My Advances,سلفتي
+My Claims,مطالباتي
+My Leaves,إجازاتي
+My Requests,طلباتي
+New,جديد
+New Expense Item,بند مصروف جديد
+New Expense Tax,ضريبة مصروف جديدة
+New Password,كلمة المرور الجديدة
+New Value,القيمة الجديدة
+New passwords do not match,كلمتا المرور الجديدتان غير متطابقتين
+New {0},{0} جديد
+No,لا
+No active employee found associated with the email ID {0}. Try logging in with your employee email ID or contact your HR manager for access.,لا يوجد موظف نشط مرتبط بالبريد {0}. جرّب البريد الوظيفي أو تواصل مع مدير الموارد البشرية.
+No advances found,لا توجد سلف
+No employees,لا يوجد موظفون
+No employees found for this branch.,لا يوجد موظفون في هذا الفرع.
+No expenses added,لم تتم إضافة مصروفات
+No login methods are available. Please contact your administrator.,لا توجد طرق لتسجيل الدخول. تواصل مع المسؤول.
+No salary slips found,لا توجد قسائم راتب
+No shift,لا توجد وردية
+No taxes added,لم تتم إضافة ضرائب
+No {0} added,لم تتم إضافة {0}
+No {0} found,لا يوجد {0}
+Notifications,الإشعارات
+OTP Code,رمز التحقق
+OTP Verification,التحقق بالرمز
+On Leave,في إجازة
+Only a manager can assign shifts for employees.,تعيين الوردية متاح للمدير فقط.
+Open,مفتوح
+PAN Number,رقم PAN
+Paid,مدفوع
+Paid Amount,المبلغ المدفوع
+Partly Claimed and Returned,مطالب به جزئيًا ومسترجع
+Password,كلمة المرور
+Payroll Cost Center,مركز تكلفة الرواتب
+Payroll Period,فترة الرواتب
+Pending,قيد الانتظار
+Pending Requests,الطلبات المعلقة
+Permanent Address,العنوان الدائم
+Permanently cancel {0},إلغاء {0} نهائيًا
+Permanently submit {0},اعتماد {0} نهائيًا
+Personal Email,البريد الشخصي
+Please fill all fields,يرجى تعبئة كل الحقول
+Please select Branch and Attendance Date first.,يرجى اختيار الفرع وتاريخ الحضور أولًا.
+Posting Date,تاريخ القيد
+Preferred Email,البريد المفضل
+Present,حاضر
+Profile,الملف الشخصي
+Promotion Request,طلب ترقية
+Provident Fund Account,حساب صندوق الادخار
+Push Notification permission denied,تم رفض إذن إشعارات الهاتف
+Push notifications disabled,إشعارات الهاتف متوقفة
+Push notifications have been disabled on your site,إشعارات الهاتف متوقفة على هذا الموقع
+Quick Links,روابط سريعة
+Reason,السبب
+Reason For Change,سبب التغيير
+Recent Attendance Requests,طلبات الحضور الأخيرة
+Recent Expenses,المصروفات الأخيرة
+Recent Leaves,الإجازات الأخيرة
+Recent Shift Requests,طلبات الوردية الأخيرة
+Reject,رفض
+Rejected,مرفوض
+Rejection,الرفض
+Reload,إعادة تحميل
+Reports to,يرفع تقاريره إلى
+Request Attendance,طلب حضور
+Request Leave,طلب إجازة
+Request a Leave,طلب إجازة
+Request a Shift,طلب وردية
+Request an Advance,طلب سلفة
+Request submitted,تم إرسال الطلب
+Required,مطلوب
+Reset Password,إعادة تعيين كلمة المرور
+Returned,مسترجع
+Salary,الراتب
+Salary Adjustment,تعديل الراتب
+Salary Information,معلومات الراتب
+Salary Mode,طريقة الراتب
+Salary Slips,قسائم الراتب
+Sanctioned,معتمد
+Saturday,السبت
+Select,اختيار
+"Select Branch and Attendance Date first, then load employees.",اختر الفرع وتاريخ الحضور أولًا، ثم حمّل الموظفين.
+Select Payroll Period,اختر فترة الرواتب
+Select a shift type.,اختر نوع الوردية.
+Select at least one employee.,اختر موظفًا واحدًا على الأقل.
+Select the start date.,اختر تاريخ البداية.
+Select {0},اختر {0}
+Settings,الإعدادات
+Settle against Advances,التسوية مقابل السلف
+Shift,الوردية
+Shift Assignment History,سجل تعيينات الوردية
+Shift Type,نوع الوردية
+Shift assignment finished,اكتمل تعيين الوردية
+Start Date,تاريخ البداية
+Status,الحالة
+Submit,إرسال
+Success,تم بنجاح
+Sunday,الأحد
+Taxes & Charges,الضرائب والرسوم
+Team Advances,سلف الفريق
+Team Claims,مطالبات الفريق
+Team Leaves,إجازات الفريق
+Team Requests,طلبات الفريق
+This field cannot be updated: {0},لا يمكن تحديث هذا الحقل: {0}
+Thursday,الخميس
+To Date,إلى تاريخ
+To Date cannot be before From Date,تاريخ النهاية لا يمكن أن يسبق تاريخ البداية
+Total Claimed Amount,إجمالي المبلغ المطالب به
+Tuesday,الثلاثاء
+Unclaimed Amount,المبلغ غير المطالب به
+Unpaid,غير مدفوع
+Upcoming Holidays,العطل القادمة
+Upcoming Shifts,الورديات القادمة
+Update Expense,تحديث المصروف
+Update Password,تحديث كلمة المرور
+Update Tax,تحديث الضريبة
+Upload images or documents,ارفع صورًا أو مستندات
+Uploading...,جارٍ الرفع...
+Verify,تحقق
+View All,عرض الكل
+View Leave History,عرض سجل الإجازات
+View List,عرض القائمة
+View Salary Slips,عرض قسائم الراتب
+Wednesday,الأربعاء
+Work From Home,عمل من المنزل
+Year To Date,منذ بداية السنة
+Yes,نعم
+You have no advances,لا توجد لديك سلف
+You have no leaves allocated,لا توجد إجازات مخصصة لك
+You have no notifications,لا توجد لديك إشعارات
+You have no pending requests,لا توجد لديك طلبات معلقة
+You have no requests,لا توجد لديك طلبات
+You have no upcoming holidays,لا توجد عطل قادمة
+You have no upcoming shifts,لا توجد ورديات قادمة
+Your password has been updated.,تم تحديث كلمة المرور.
+Your password has expired. Please reset your password to continue,انتهت صلاحية كلمة المرور. أعد تعيينها للمتابعة
+cancellation,إلغاء
+cancelled,ملغى
+check-in,تسجيل الحضور
+check-out,تسجيل الانصراف
+on,في
+submission,إرسال
+submitted,تم الإرسال
+yesterday,أمس
+{0} & {1} more,{0} و{1} إضافية
+{0} Unread,{0} غير مقروء
+{0} balance,رصيد {0}
+{0} created successfully!,تم إنشاء {0} بنجاح!
+{0} deleted successfully!,تم حذف {0} بنجاح!
+{0} employee(s) loaded,تم تحميل {0} موظف
+{0} failed!,فشل {0}!
+{0} successful!,نجح {0}!
+{0} successfully!,تم {0} بنجاح!
+{0} updated successfully!,تم تحديث {0} بنجاح!
+{0}: {1},{0}: {1}
+{0}d,{0} ي

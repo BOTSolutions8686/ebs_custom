@@ -8,6 +8,13 @@ import frappe
 # Only copy these paths from hrms_overlay (safe — won't break core hrms)
 OVERLAY_COPY_PATHS = [
 	"frontend/src/views/ebs_custom",
+	"frontend/src/components/BaseLayout.vue",
+	"frontend/src/components/CheckInPanel.vue",
+	"frontend/src/plugins/translationsPlugin.js",
+	"frontend/src/utils/formatters.js",
+	"frontend/src/utils/documentDirection.js",
+	"frontend/src/document-direction.css",
+	"frontend/src/fonts",
 	"frontend/src/views/ChangePassword.vue",
 	"frontend/src/views/AppSettings.vue",
 	"frontend/src/views/Profile.vue",
@@ -40,6 +47,7 @@ def apply_hrms_pwa_overlay():
 	hrms_root = frappe.get_app_path("hrms", "..")
 
 	_copy_overlay_files(overlay_root, hrms_root)
+	_patch_main_js(hrms_root)
 	_patch_router_index(hrms_root)
 	_patch_home_vue(hrms_root)
 	_patch_hooks(hrms_root)
@@ -138,6 +146,30 @@ def _copy_overlay_files(overlay_root, hrms_root):
 			shutil.copy2(src, dst)
 
 
+def _patch_main_js(hrms_root):
+	path = os.path.join(hrms_root, "frontend", "src", "main.js")
+	if not os.path.isfile(path):
+		return
+
+	with open(path, encoding="utf-8") as handle:
+		content = handle.read()
+
+	if "applyDocumentDirection" not in content:
+		content = content.replace(
+			'import "./main.css"\n',
+			'import "./main.css"\nimport "./document-direction.css"\nimport { applyDocumentDirection } from "./utils/documentDirection.js"\n',
+			1,
+		)
+		content = content.replace(
+			"\tawait translationsPlugin.isReady();",
+			"\tapplyDocumentDirection()\n\tawait translationsPlugin.isReady();",
+			1,
+		)
+
+	with open(path, "w", encoding="utf-8") as handle:
+		handle.write(content)
+
+
 def _patch_router_index(hrms_root):
 	path = os.path.join(hrms_root, "frontend", "src", "router", "index.js")
 	if not os.path.isfile(path):
@@ -211,11 +243,16 @@ def _patch_home_vue(hrms_root):
 	content = content.replace("SalaryAdjustmentFormView", "SalaryAdjustmentRequestFormView")
 	content = content.replace("SalaryAdjustmentDetailView", "SalaryAdjustmentRequestDetailView")
 
-	if "SalaryAdjustmentRequestFormView" in content:
-		with open(path, "w", encoding="utf-8") as handle:
-			handle.write(content)
-		return
+	if "SalaryAdjustmentRequestFormView" not in content:
+		content = _insert_original_home_links(content)
 
+	content = _insert_home_links(content)
+
+	with open(path, "w", encoding="utf-8") as handle:
+		handle.write(content)
+
+
+def _insert_original_home_links(content):
 	quick_links = """
 	{
 		icon: markRaw(SalaryIcon),
@@ -242,8 +279,54 @@ def _patch_home_vue(hrms_root):
 			content = content.replace(pattern, '\t\troute: "SalarySlipsDashboard",\n\t},' + quick_links)
 			break
 
-	with open(path, "w", encoding="utf-8") as handle:
-		handle.write(content)
+	return content
+
+
+def _insert_home_links(content):
+	start = content.find("const quickLinks")
+	if start < 0:
+		return content
+
+	end = content.find("\n]", start)
+	if end < 0:
+		return content
+
+	links = [
+		(
+			"EmployeeDataAdjustmentRequestFormView",
+			"""	{
+		icon: markRaw(LeaveIcon),
+		title: __("Change My Information"),
+		route: "EmployeeDataAdjustmentRequestFormView",
+	}""",
+		),
+		(
+			"PendingRequests",
+			"""	{
+		icon: markRaw(AttendanceIcon),
+		title: __("Pending Requests"),
+		route: "PendingRequests",
+	}""",
+		),
+	]
+	content = re.sub(
+		r"\n\t\{\n\t\ticon: markRaw\(ShiftIcon\),\n\t\ttitle: __\(\"Assign Shift\"\),\n\t\troute: \"BulkShiftAssignment\",\n\t\},?",
+		"",
+		content,
+	)
+	end = content.find("\n]", start)
+	block = content[start:end]
+	for route, snippet in links:
+		if route in block:
+			continue
+		block = block.rstrip()
+		if not block.endswith(","):
+			block += ","
+		block += "\n" + snippet + ","
+		content = content[:start] + block + content[end:]
+		end = start + len(block)
+		block = content[start:end]
+	return content
 
 
 def _patch_hooks(hrms_root):

@@ -11,7 +11,6 @@ const forms = [
 	["resignation-request", "Resignation Request", genericForm],
 	["offboarding-interview", "Offboarding Interview", genericForm],
 	["employee-complaint", "Employee Complaint", genericForm],
-	["employee-data-adjustment", "Employee Data Adjustment Request", genericForm],
 ]
 
 const routes = forms.flatMap(([path, doctype, component]) => {
@@ -34,5 +33,27 @@ const routes = forms.flatMap(([path, doctype, component]) => {
 		},
 	]
 })
+
+routes.push(
+	{
+		path: "/employee-data-adjustment/new",
+		name: "EmployeeDataAdjustmentRequestFormView",
+		component: () => import("@/views/ebs_custom/InformationChangeForm.vue"),
+	},
+	{
+		path: "/employee-data-adjustment/:id",
+		name: "EmployeeDataAdjustmentRequestDetailView",
+		component: genericForm,
+		props: (route) => ({
+			doctype: "Employee Data Adjustment Request",
+			id: route.params.id,
+		}),
+	},
+	{
+		path: "/pending-requests",
+		name: "PendingRequests",
+		component: () => import("@/views/ebs_custom/PendingRequests.vue"),
+	},
+)
 
 export default routes
