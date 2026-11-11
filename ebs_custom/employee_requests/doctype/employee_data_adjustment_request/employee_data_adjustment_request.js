@@ -8,9 +8,7 @@ frappe.ui.form.on("Employee Data Adjustment Request", {
     },
 
     refresh: function(frm) {
-        if (frm.doc.__islocal) {
-            frm.trigger("set_employee_fields");
-        }
+        frm.trigger("set_employee_fields");
 
         if (
             frm.doc.docstatus === 0 &&
@@ -82,6 +80,11 @@ frappe.ui.form.on("Employee Data Adjustment Request", {
             console.log("Field Map:", field_map);
 
             if (frm.fields_dict["items"]) {
+                frm.fields_dict["items"].grid.update_docfield_property(
+                    "field_to_be_updated",
+                    "fieldtype",
+                    "Select"
+                );
                 frm.fields_dict["items"].grid.update_docfield_property(
                     "field_to_be_updated",
                     "options",

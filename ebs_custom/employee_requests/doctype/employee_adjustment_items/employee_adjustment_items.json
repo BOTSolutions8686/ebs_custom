@@ -22,10 +22,9 @@
   },
   {
    "fieldname": "field_to_be_updated",
-   "fieldtype": "Select",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Field To Be Updated",
-   "options": "Cell Number\nPersonal Email\nCurrent Address\nPermanent Address\nEmergency Phone\nContact Person\nBank Account\nIBAN",
    "reqd": 1
   },
   {

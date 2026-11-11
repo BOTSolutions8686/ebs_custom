@@ -7,13 +7,45 @@ from frappe.model.document import Document
 
 FIELD_MAP = {
 	"Cell Number": "cell_number",
+	"Mobile": "cell_number",
+	"Mobile No": "cell_number",
 	"Personal Email": "personal_email",
 	"Current Address": "current_address",
 	"Permanent Address": "permanent_address",
 	"Emergency Phone": "emergency_phone_number",
 	"Contact Person": "person_to_be_contacted",
 	"Bank Account": "bank_ac_no",
+	"Bank A/C No.": "bank_ac_no",
 	"IBAN": "iban",
+}
+
+SKIP_FIELDTYPES = {
+	"Section Break",
+	"Column Break",
+	"Tab Break",
+	"Button",
+	"HTML",
+	"Image",
+	"Attach Image",
+	"Series",
+	"Table",
+	"Table MultiSelect",
+	"Fold",
+	"Heading",
+	"Check",
+}
+SKIP_FIELDNAMES = {
+	"name",
+	"naming_series",
+	"owner",
+	"creation",
+	"modified",
+	"modified_by",
+	"docstatus",
+	"idx",
+	"lft",
+	"rgt",
+	"old_parent",
 }
 
 
@@ -48,12 +80,32 @@ class EmployeeDataAdjustmentRequest(Document):
 			frappe.throw(_("Add at least one change."))
 
 		employee = frappe.get_doc("Employee", self.employee)
-		meta = frappe.get_meta("Employee")
 		for row in self.items:
-			fieldname = FIELD_MAP.get(row.field_to_be_updated)
-			if not fieldname or not meta.has_field(fieldname):
+			fieldname = employee_fieldname(row.field_to_be_updated)
+			if not fieldname:
 				frappe.throw(_("This field cannot be updated: {0}").format(row.field_to_be_updated))
 			employee.set(fieldname, row.new_value)
 
 		employee.save(ignore_permissions=True)
 		frappe.db.set_value(self.doctype, self.name, "status", "Completed", update_modified=False)
+
+
+def employee_fieldname(label):
+	meta = frappe.get_meta("Employee")
+	fieldname = FIELD_MAP.get(label)
+	if not fieldname:
+		for df in meta.fields:
+			if df.label == label:
+				fieldname = df.fieldname
+				break
+
+	df = meta.get_field(fieldname) if fieldname else None
+	if (
+		not df
+		or df.hidden
+		or df.read_only
+		or df.fieldtype in SKIP_FIELDTYPES
+		or df.fieldname in SKIP_FIELDNAMES
+	):
+		return None
+	return df.fieldname
